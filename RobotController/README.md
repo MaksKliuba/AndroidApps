@@ -1,5 +1,7 @@
 # Robot Controller
 
+#### Даний додаток створений для керування роботами по Bluetooth. Зокрема, його було розроблено для проекта [Ruby](https://github.com/MaksKliuba/ArduinoProjects/tree/master/Ruby) (з формату .txt у формат .jpg)
+
 #### Альбомна орієнтація
 ![Image description](https://github.com/MaksKliuba/AndroidApps/blob/master/RobotController/images/photo_1.jpg)
 
