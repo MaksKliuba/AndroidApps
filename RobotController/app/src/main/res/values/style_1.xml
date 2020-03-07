@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="backcolor">#202124</color>
+    <color name="menu_color">#222E44</color>
+    <color name="progress_fill">#1546BF</color>
+    <color name="progress_back">#FFFFFF</color>
+</resources>

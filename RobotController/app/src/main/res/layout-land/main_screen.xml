@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/backcolor"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/bluetoothButton"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+
+            android:layout_margin="10dp"
+
+            android:src="@drawable/bluetooth_button3_off" />
+
+        <ImageView
+            android:id="@+id/settingsButton"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+
+            android:layout_margin="10dp"
+
+            android:onClick="settingsButtonClick"
+            android:src="@drawable/settings_button3" />
+
+        <ImageView
+            android:id="@+id/ledButton"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+
+            android:layout_margin="10dp"
+
+            android:src="@drawable/led_button_off" />
+
+        <ImageView
+            android:id="@+id/irButton"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+
+            android:layout_marginVertical="10dp"
+            android:layout_marginLeft="10dp"
+
+            android:src="@drawable/ir_button_off" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_weight="1"
+
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <SeekBar
+                    android:id="@+id/soundSlider"
+                    style="@android:style/Widget.SeekBar"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="20dp"
+                    android:layout_weight="1"
+                    android:max="30"
+                    android:maxHeight="15dip"
+                    android:progress="20"
+                    android:progressDrawable="@drawable/seekbar" />
+
+                <ImageView
+                    android:id="@+id/imageView"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_gravity="start"
+                    android:layout_marginLeft="3dp"
+
+                    android:src="@drawable/sound_img" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <SeekBar
+                    android:id="@+id/speedSlider"
+                    style="@android:style/Widget.SeekBar"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:max="255"
+                    android:maxHeight="15dip"
+                    android:progress="150"
+                    android:progressDrawable="@drawable/seekbar" />
+
+                <ImageView
+                    android:id="@+id/imageView2"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:layout_gravity="start"
+
+                    android:src="@drawable/speed_img" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="20dp"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/arrowF"
+                android:layout_width="110dp"
+                android:layout_height="110dp"
+
+                android:layout_margin="10dp"
+
+                android:src="@drawable/arrow" />
+
+            <ImageView
+                android:id="@+id/arrowB"
+                android:layout_width="110dp"
+                android:layout_height="110dp"
+
+                android:layout_margin="10dp"
+
+                android:rotation="180"
+                android:src="@drawable/arrow" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/micButton"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="25dp"
+                android:layout_marginBottom="40dp"
+                android:onClick="voiceButtonClick"
+                android:scaleType="centerInside"
+                android:src="@drawable/voice_button_2" />
+
+            <ImageView
+                android:id="@+id/buttonStop"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:layout_gravity="center_horizontal"
+
+                android:scaleType="centerInside"
+                android:src="@drawable/button_stop_2" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginRight="20dp"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="end"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/arrowL"
+                    android:layout_width="110dp"
+                    android:layout_height="110dp"
+
+                    android:layout_margin="10dp"
+
+                    android:rotation="270"
+                    android:src="@drawable/arrow" />
+
+                <ImageView
+                    android:id="@+id/arrowR"
+                    android:layout_width="110dp"
+                    android:layout_height="110dp"
+
+                    android:layout_margin="10dp"
+
+                    android:rotation="90"
+                    android:src="@drawable/arrow" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="end"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/arrowTL"
+                    android:layout_width="110dp"
+                    android:layout_height="110dp"
+
+                    android:layout_margin="10dp"
+
+                    android:scaleX="-1"
+                    android:src="@drawable/arrow_turn" />
+
+                <ImageView
+                    android:id="@+id/arrowTR"
+                    android:layout_width="110dp"
+                    android:layout_height="110dp"
+
+                    android:layout_margin="10dp"
+
+                    android:src="@drawable/arrow_turn" />
+            </LinearLayout>
+
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>
