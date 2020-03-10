@@ -7,20 +7,16 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.content.res.Configuration;
-import android.graphics.drawable.GradientDrawable;
 import android.os.Bundle;
 import android.os.Handler;
 import android.speech.RecognizerIntent;
-import android.util.Log;
 import android.view.ContextMenu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.PopupMenu;
 import android.widget.SeekBar;
-
 import androidx.appcompat.app.AppCompatActivity;
-
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
@@ -31,6 +27,8 @@ public class MainActivity extends AppCompatActivity {
     BluetoothService bluetoothService;
     final int MENU_DISCONNECTED = 1;
     final int MENU_CONNECTED = 2;
+    final int PORTRAIT_ORIENTATION = 3;
+    final int LANDSCAPE_ORIENTATION = 4;
 
     public static final int VOICE_RECOGNITION_REQUEST_CODE = 1234;
 
@@ -59,36 +57,26 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main_screen);
 
-        try {
-            settingsButton = (ImageView) findViewById(R.id.settingsButton);
-            bluetoothButton = new ScramButton(this, (ImageView) findViewById(R.id.bluetoothButton), R.drawable.bluetooth_button3_off, R.drawable.bluetooth_button_on, "", "");
-            ledButton = new ScramButton(this, (ImageView) findViewById(R.id.ledButton), R.drawable.led_button_off, R.drawable.led_button_on, "lOn", "lOff");
-            irButton = new ScramButton(this, (ImageView) findViewById(R.id.irButton), R.drawable.ir_button_off, R.drawable.ir_button_on, "irOn", "irOff");
+        settingsButton = (ImageView) findViewById(R.id.settingsButton);
+        bluetoothButton = new ScramButton(this, (ImageView) findViewById(R.id.bluetoothButton), R.drawable.bluetooth_button3_off, R.drawable.bluetooth_button_on, "", "");
+        ledButton = new ScramButton(this, (ImageView) findViewById(R.id.ledButton), R.drawable.led_button_off, R.drawable.led_button_on, "lOn", "lOff");
+        irButton = new ScramButton(this, (ImageView) findViewById(R.id.irButton), R.drawable.ir_button_off, R.drawable.ir_button_on, "irOn", "irOff");
 
-            soundSlider = new Slider(this, (SeekBar) findViewById(R.id.soundSlider), 0);
-            speedSlider = new Slider(this, (SeekBar) findViewById(R.id.speedSlider), 1);
+        soundSlider = new Slider(this, (SeekBar) findViewById(R.id.soundSlider), 0);
+        speedSlider = new Slider(this, (SeekBar) findViewById(R.id.speedSlider), 1);
 
-            arrowF = new PushButton(this, (ImageView) findViewById(R.id.arrowF), R.drawable.arrow, R.drawable.arrow_pressed, "F");
-            arrowB = new PushButton(this, (ImageView) findViewById(R.id.arrowB), R.drawable.arrow, R.drawable.arrow_pressed,"B");
-            arrowL = new PushButton(this, (ImageView) findViewById(R.id.arrowL), R.drawable.arrow, R.drawable.arrow_pressed, "L");
-            arrowR = new PushButton(this, (ImageView) findViewById(R.id.arrowR), R.drawable.arrow, R.drawable.arrow_pressed, "R");
-            arrowTL = new PushButton(this, (ImageView) findViewById(R.id.arrowTL), R.drawable.arrow_turn, R.drawable.arrow_turn_pressed, "TL");
-            arrowTR = new PushButton(this, (ImageView) findViewById(R.id.arrowTR), R.drawable.arrow_turn, R.drawable.arrow_turn_pressed, "TR");
-            buttonStop = new PushButton(this, (ImageView) findViewById(R.id.buttonStop), R.drawable.button_stop_2, R.drawable.button_stop_pressed, "S");
+        arrowF = new PushButton(this, (ImageView) findViewById(R.id.arrowF), R.drawable.arrow, R.drawable.arrow_pressed, "F");
+        arrowB = new PushButton(this, (ImageView) findViewById(R.id.arrowB), R.drawable.arrow, R.drawable.arrow_pressed,"B");
+        arrowL = new PushButton(this, (ImageView) findViewById(R.id.arrowL), R.drawable.arrow, R.drawable.arrow_pressed, "L");
+        arrowR = new PushButton(this, (ImageView) findViewById(R.id.arrowR), R.drawable.arrow, R.drawable.arrow_pressed, "R");
+        arrowTL = new PushButton(this, (ImageView) findViewById(R.id.arrowTL), R.drawable.arrow_turn, R.drawable.arrow_turn_pressed, "TL");
+        arrowTR = new PushButton(this, (ImageView) findViewById(R.id.arrowTR), R.drawable.arrow_turn, R.drawable.arrow_turn_pressed, "TR");
+        buttonStop = new PushButton(this, (ImageView) findViewById(R.id.buttonStop), R.drawable.button_stop_2, R.drawable.button_stop_pressed, "S");
 
-            registerForContextMenu(bluetoothButton.imageView);
-            registerForContextMenu(settingsButton);
+        registerForContextMenu(bluetoothButton.imageView);
+        registerForContextMenu(settingsButton);
 
-            bluetoothService = new BluetoothService(this, bluetoothButton);
-        }
-        catch (NullPointerException e)
-        {
-            Log.d(bluetoothService.TAG, "LOL: " + e.getMessage() + ".");
-        }
-    }
-
-    protected void onSaveInstanceState(Bundle outState) {
-        super.onSaveInstanceState(outState);
+        bluetoothService = new BluetoothService(this, bluetoothButton);
     }
 
     @Override
@@ -108,10 +96,6 @@ public class MainActivity extends AppCompatActivity {
 
         if(bluetoothService.isConnected)
             bluetoothService.disconnect();
-    }
-
-    protected void onRestoreInstanceState(Bundle savedInstanceState) {
-        super.onRestoreInstanceState(savedInstanceState);
     }
 
     public void analyzeSwiches(ScramButton scramButton)
@@ -211,11 +195,11 @@ public class MainActivity extends AppCompatActivity {
         {
             if(getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE)
             {
-                menu.add(0, 3, 0,"PORTRAIT");
+                menu.add(0, PORTRAIT_ORIENTATION, 0,"PORTRAIT orientation");
             }
             else
             {
-                menu.add(0, 4, 0,"LANDSCAPE");
+                menu.add(0, LANDSCAPE_ORIENTATION, 0,"LANDSCAPE orientation");
             }
         }
     }
@@ -230,11 +214,11 @@ public class MainActivity extends AppCompatActivity {
             case MENU_CONNECTED:
                 analyzeSwiches(bluetoothButton);
                 break;
-            case 3:
+            case PORTRAIT_ORIENTATION:
                 bluetoothService.disconnect();
                 setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
                 break;
-            case 4:
+            case LANDSCAPE_ORIENTATION:
                 bluetoothService.disconnect();
                 setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
                 break;
@@ -382,6 +366,7 @@ public class MainActivity extends AppCompatActivity {
         Intent intent =  new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH);
         intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL, RecognizerIntent.LANGUAGE_MODEL_FREE_FORM);
         intent.putExtra(RecognizerIntent.EXTRA_PROMPT, "Listening...");
+        intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE, "en-US");
         startActivityForResult(intent, VOICE_RECOGNITION_REQUEST_CODE);
     }
 

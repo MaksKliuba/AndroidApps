@@ -10,14 +10,16 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:layout_weight="1"
+        android:gravity="top">
 
         <ImageView
             android:id="@+id/bluetoothButton"
             android:layout_width="70dp"
             android:layout_height="70dp"
 
-            android:layout_margin="10dp"
+            android:layout_margin="7dp"
 
             android:src="@drawable/bluetooth_button3_off" />
 
@@ -26,7 +28,7 @@
             android:layout_width="70dp"
             android:layout_height="70dp"
 
-            android:layout_margin="10dp"
+            android:layout_margin="7dp"
 
             android:onClick="settingsButtonClick"
             android:src="@drawable/settings_button3" />
@@ -36,7 +38,7 @@
             android:layout_width="70dp"
             android:layout_height="70dp"
 
-            android:layout_margin="10dp"
+            android:layout_margin="7dp"
 
             android:src="@drawable/led_button_off" />
 
@@ -45,18 +47,17 @@
             android:layout_width="70dp"
             android:layout_height="70dp"
 
-            android:layout_marginVertical="10dp"
-            android:layout_marginLeft="10dp"
+            android:layout_marginVertical="7dp"
+            android:layout_marginLeft="7dp"
 
             android:src="@drawable/ir_button_off" />
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginVertical="10dp"
+            android:layout_marginVertical="7dp"
             android:layout_marginRight="10dp"
             android:layout_weight="1"
-
             android:orientation="vertical">
 
             <LinearLayout
@@ -69,7 +70,7 @@
                     style="@android:style/Widget.SeekBar"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="20dp"
+                    android:layout_marginBottom="15dp"
                     android:layout_weight="1"
                     android:max="30"
                     android:maxHeight="15dip"
@@ -117,21 +118,24 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="horizontal">
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_weight="1"
+        android:layout_gravity="center">
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
+            android:gravity="start"
+            android:layout_gravity="bottom"
             android:layout_marginLeft="20dp"
             android:layout_weight="1"
             android:orientation="vertical">
 
             <ImageView
                 android:id="@+id/arrowF"
-                android:layout_width="110dp"
-                android:layout_height="110dp"
+                android:layout_width="102dp"
+                android:layout_height="102dp"
 
                 android:layout_margin="10dp"
 
@@ -139,8 +143,8 @@
 
             <ImageView
                 android:id="@+id/arrowB"
-                android:layout_width="110dp"
-                android:layout_height="110dp"
+                android:layout_width="102dp"
+                android:layout_height="102dp"
 
                 android:layout_margin="10dp"
 
@@ -151,25 +155,26 @@
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
+            android:gravity="center"
+            android:layout_gravity="bottom"
             android:layout_weight="1"
             android:orientation="vertical">
 
             <ImageView
                 android:id="@+id/micButton"
-                android:layout_width="80dp"
-                android:layout_height="80dp"
+                android:layout_width="75dp"
+                android:layout_height="75dp"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="25dp"
-                android:layout_marginBottom="40dp"
+                android:layout_marginBottom="35dp"
                 android:onClick="voiceButtonClick"
                 android:scaleType="centerInside"
                 android:src="@drawable/voice_button_2" />
 
             <ImageView
                 android:id="@+id/buttonStop"
-                android:layout_width="120dp"
-                android:layout_height="120dp"
+                android:layout_width="115dp"
+                android:layout_height="112dp"
                 android:layout_gravity="center_horizontal"
 
                 android:scaleType="centerInside"
@@ -179,8 +184,8 @@
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
             android:layout_marginRight="20dp"
+            android:layout_gravity="bottom"
             android:layout_weight="1"
             android:orientation="vertical">
 
@@ -192,8 +197,8 @@
 
                 <ImageView
                     android:id="@+id/arrowL"
-                    android:layout_width="110dp"
-                    android:layout_height="110dp"
+                    android:layout_width="102dp"
+                    android:layout_height="102dp"
 
                     android:layout_margin="10dp"
 
@@ -202,8 +207,8 @@
 
                 <ImageView
                     android:id="@+id/arrowR"
-                    android:layout_width="110dp"
-                    android:layout_height="110dp"
+                    android:layout_width="102dp"
+                    android:layout_height="102dp"
 
                     android:layout_margin="10dp"
 
@@ -219,8 +224,8 @@
 
                 <ImageView
                     android:id="@+id/arrowTL"
-                    android:layout_width="110dp"
-                    android:layout_height="110dp"
+                    android:layout_width="102dp"
+                    android:layout_height="102dp"
 
                     android:layout_margin="10dp"
 
@@ -229,8 +234,8 @@
 
                 <ImageView
                     android:id="@+id/arrowTR"
-                    android:layout_width="110dp"
-                    android:layout_height="110dp"
+                    android:layout_width="102dp"
+                    android:layout_height="102dp"
 
                     android:layout_margin="10dp"
 

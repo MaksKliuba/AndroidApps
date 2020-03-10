@@ -25,17 +25,16 @@ public class PushButton extends ImgButton
             @Override
             public boolean onTouch(View v, MotionEvent event) {
                 switch (event.getAction()) {
-                    case MotionEvent.ACTION_DOWN: // нажатие
+                    case MotionEvent.ACTION_DOWN:
                         mainActivity.analyzeON(PushButton.this);
                         break;
-                    case MotionEvent.ACTION_MOVE: // движение
+                    case MotionEvent.ACTION_MOVE:
                         break;
-                    case MotionEvent.ACTION_UP: // отпускание
+                    case MotionEvent.ACTION_UP:
                         mainActivity.analyzeOFF(PushButton.this);
                         break;
                 }
 
-                //mainActivity.analyzeData(PushButton.this);
                 return true;
             }
         });

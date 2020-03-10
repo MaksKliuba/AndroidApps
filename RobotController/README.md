@@ -11,5 +11,14 @@
 #### Список доступних пристроїв
 ![Image description](https://github.com/MaksKliuba/AndroidApps/blob/master/RobotController/images/photo_3.jpg)
 
-#### Голосове керування
+#### З'єднання із пристроєм
 ![Image description](https://github.com/MaksKliuba/AndroidApps/blob/master/RobotController/images/photo_4.jpg)
+
+#### При успішному з'єднанні іконка Bluetooth звінюється на із сірої на синю
+![Image description](https://github.com/MaksKliuba/AndroidApps/blob/master/RobotController/images/photo_5.jpg)
+
+#### Увімкнуті фари та IR-бампер
+![Image description](https://github.com/MaksKliuba/AndroidApps/blob/master/RobotController/images/photo_6.jpg)
+
+#### Голосове керування
+![Image description](https://github.com/MaksKliuba/AndroidApps/blob/master/RobotController/images/photo_7.jpg)

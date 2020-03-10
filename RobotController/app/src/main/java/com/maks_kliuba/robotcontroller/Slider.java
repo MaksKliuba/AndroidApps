@@ -24,7 +24,7 @@ public class Slider
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
 
-                //mainActivity.analyzeSlider(number + ":" + progress);
+                //activity.analyzeSlider(number + ":" + progress);
             }
 
             @Override
