@@ -22,3 +22,5 @@
 
 #### Голосове керування
 ![Image description](https://github.com/MaksKliuba/AndroidApps/blob/master/RobotController/images/photo_7.jpg)
+
+#### Завантажити додаток можна [тут](https://github.com/MaksKliuba/AndroidApps/blob/master/RobotController/app/release/app-release.apk).
