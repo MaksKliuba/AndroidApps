@@ -193,14 +193,26 @@ public class MainActivity extends AppCompatActivity {
         }
         else if(v == settingsButton)
         {
-            if(getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE)
-            {
-                menu.add(0, PORTRAIT_ORIENTATION, 0,"PORTRAIT orientation");
-            }
-            else
-            {
-                menu.add(0, LANDSCAPE_ORIENTATION, 0,"LANDSCAPE orientation");
-            }
+            menu.add("                INFO");
+            menu.add("Forward -> F");
+            menu.add("Back -> B");
+            menu.add("Left -> L");
+            menu.add("Right -> R");
+            menu.add("Turn Left -> TL");
+            menu.add("Turn Right -> TR");
+            menu.add("Forward Left -> FL");
+            menu.add("Forward Right -> FR");
+            menu.add("Back Left -> BL");
+            menu.add("Back Right -> BR");
+            menu.add("Stop -> S");
+
+            menu.add("Led On -> lOn");
+            menu.add("Led Off -> lOff");
+            menu.add("IR-sensor On -> irOn");
+            menu.add("IR-sensor Off -> irOff");
+
+            menu.add("Sound -> 0:value");
+            menu.add("Speed -> 1:value");
         }
     }
 
@@ -213,14 +225,6 @@ public class MainActivity extends AppCompatActivity {
                 break;
             case MENU_CONNECTED:
                 analyzeSwiches(bluetoothButton);
-                break;
-            case PORTRAIT_ORIENTATION:
-                bluetoothService.disconnect();
-                setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
-                break;
-            case LANDSCAPE_ORIENTATION:
-                bluetoothService.disconnect();
-                setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
                 break;
         }
 
@@ -410,27 +414,31 @@ public class MainActivity extends AppCompatActivity {
     {
         PopupMenu settingsMenu = new PopupMenu(this, view);
 
-        settingsMenu.getMenu().add("                INFO");
-        settingsMenu.getMenu().add("Forward -> F");
-        settingsMenu.getMenu().add("Back -> B");
-        settingsMenu.getMenu().add("Left -> L");
-        settingsMenu.getMenu().add("Right -> R");
-        settingsMenu.getMenu().add("Turn Left -> TL");
-        settingsMenu.getMenu().add("Turn Right -> TR");
-        settingsMenu.getMenu().add("Forward Left -> FL");
-        settingsMenu.getMenu().add("Forward Right -> FR");
-        settingsMenu.getMenu().add("Back Left -> BL");
-        settingsMenu.getMenu().add("Back Right -> BR");
-        settingsMenu.getMenu().add("Stop -> S");
-
-        settingsMenu.getMenu().add("Led On -> lOn");
-        settingsMenu.getMenu().add("Led Off -> lOff");
-        settingsMenu.getMenu().add("IR-sensor On -> irOn");
-        settingsMenu.getMenu().add("IR-sensor Off -> irOff");
-
-        settingsMenu.getMenu().add("Sound -> 0:value");
-        settingsMenu.getMenu().add("Speed -> 1:value");
+        if(getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE)
+            settingsMenu.getMenu().add(0, PORTRAIT_ORIENTATION, 0,"PORTRAIT orientation");
+        else
+            settingsMenu.getMenu().add(0, LANDSCAPE_ORIENTATION, 0,"LANDSCAPE orientation");
 
         settingsMenu.show();
+
+        settingsMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+
+            @Override
+            public boolean onMenuItemClick(MenuItem menuItem)
+            {
+                switch (menuItem.getItemId()) {
+                    case PORTRAIT_ORIENTATION:
+                        bluetoothService.disconnect();
+                        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+                        break;
+                    case LANDSCAPE_ORIENTATION:
+                        bluetoothService.disconnect();
+                        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
+                        break;
+                }
+
+                return false;
+            }
+        });
     }
 }
