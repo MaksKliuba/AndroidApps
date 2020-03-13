@@ -120,12 +120,15 @@ public class MainActivity extends AppCompatActivity {
 
         devices = bluetoothService.getDevices();
 
-        for(int i = 0; i < devices.size(); i++)
-        {
-            connectionMenu.getMenu().add(0, i, 0, devices.get(i).getName() + ": " + devices.get(i).getAddress());
-        }
+        if(devices.size() > 0) {
+            for (int i = 0; i < devices.size(); i++) {
+                connectionMenu.getMenu().add(0, i, 0, devices.get(i).getName() + ": " + devices.get(i).getAddress());
+            }
 
-        connectionMenu.show();
+            connectionMenu.show();
+        }
+        else
+            bluetoothService.infoPrint("No paired devices");
 
         connectionMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
 
