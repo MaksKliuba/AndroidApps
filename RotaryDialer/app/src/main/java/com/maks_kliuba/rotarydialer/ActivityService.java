@@ -28,7 +28,7 @@ public class ActivityService
     {
         if(manager.getStreamVolume(AudioManager.STREAM_MUSIC) == 0)
         {
-            vibrate(20);
+            vibrate(25);
         }
         else
         {
