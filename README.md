@@ -1,1 +1,1 @@
-# AndroidApps :)
+# AndroidApps
